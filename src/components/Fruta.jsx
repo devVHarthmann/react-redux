@@ -1,6 +1,12 @@
 import React from "react";
+import { actions } from "../actions/frutas.action";
+import { useDispatch } from "react-redux";
+
+
+
 
 const Fruta = ({ fruta }) => {
+  const dispatch = useDispatch();
   return (
     <div className="fruta">
       <ul>
@@ -11,7 +17,8 @@ const Fruta = ({ fruta }) => {
           <strong>Quantidade: </strong> {fruta.quantidade}
         </li>
       </ul>
-      <button onClick={() => alert(fruta.id)}>Remover</button>
+      <button onClick={() => dispatch(actions.remover(fruta))}>Remover</button>
     </div>
   );
 };
+export default Fruta
